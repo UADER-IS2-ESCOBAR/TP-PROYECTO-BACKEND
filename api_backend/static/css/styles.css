@@ -1,0 +1,40 @@
+
+ .pokemon-card {
+     width: 100%;
+     max-width: 500px;
+     margin: 20px auto;
+     border: 1px solid #ffffff;
+     border-radius: 8px;
+     overflow: hidden;
+     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+     /* Fondo con blur */
+     background-color: rgba(255, 255, 255, 0);
+     /* Fondo semi-transparente */
+     backdrop-filter: blur(10px);
+     /* Efecto de desenfoque */
+
+     /* Sombra */
+     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.753);
+     /* Sombra suave */
+ }
+
+ .pokemon-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ /* Estilos para el navbar */
+ nav {
+     background-color: rgba(0, 0, 0, 0.5);
+     padding: 20px 0;
+     /* Ajuste del padding para más espacio vertical */
+ }
+
+ nav .logo {
+     width: 200px;
+     /* Ancho reducido para la imagen */
+     height: auto;
+     /* Altura automática para mantener la proporción */
+ }
+

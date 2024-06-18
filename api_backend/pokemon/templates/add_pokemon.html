@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Pokemon</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/Favicon-Pokeball.png' %}"> <!-- Ruta al favicon -->
+
+    <style>
+        /* Estilo para el body */
+        body {
+            background-image: url("{% static 'images/background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 20;
+        }
+
+        /* Estilo para los formularios */
+        form {
+            max-width: 600px;
+            margin-top: 1.5rem;
+        }
+
+        /* Estilo para los campos del formulario */
+        form p {
+            margin-bottom: 5px;
+        }
+
+        /* Estilo para los input */
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 0px 10px rgba(255, 255, 255, 0.753);
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #000000;
+            /* Rojo */
+            box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2);
+            /* Efecto de sombra roja */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-transparent p-4 fixed w-full top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#">
+                <img src="{% static 'images/Pokemon-Logo.png' %}" alt="Logo Pokemon" class="logo">
+            </a>
+            <ul class="flex space-x-4">
+                <li><a href="{% url 'index_pokemon' %}" class="text-black hover:text-gray-200">Ver colección</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-4">Agregar Pokémon</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Agregar Pokémon
+            </button>
+        </form>
+    </div>
+
+</body>
+
+</html>
